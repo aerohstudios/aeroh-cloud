@@ -59,3 +59,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Application Specific Packages
 
 gem 'devise'
+gem 'doorkeeper'
