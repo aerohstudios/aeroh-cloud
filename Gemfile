@@ -65,3 +65,5 @@ gem 'doorkeeper'
 
 gem "sentry-ruby"
 gem "sentry-rails"
+
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'

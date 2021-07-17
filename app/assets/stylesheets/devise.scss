@@ -1,0 +1,44 @@
+.devise-container {
+    margin: auto;
+    width: 30em;
+    padding: 2em;
+    background-color: #efefef;
+
+    h2 {
+        text-align: center;
+    }
+
+    input {
+        width: 100%;
+        font-size: 1.5em;
+    }
+
+    input[type=checkbox] {
+        width: 1.2em;
+        height: 1.2em;
+    }
+
+    .field {
+        padding: 1em 0em;
+    }
+
+    label {
+        font-size: 1.4em;
+    }
+
+    label[for=user_remember_me] {
+        vertical-align: top;
+        margin-top: 0.2em;
+        padding-left: .3em;
+    }
+
+    .shared-links {
+        margin-top: 1em;
+
+        a {
+            display: block;
+            padding: 0.5em 0;
+            font-size: 1.2em;
+        }
+    }
+}
