@@ -1,7 +1,6 @@
 module DeviseConcern
 
     def after_sign_in_path_for(resource)
-        binding.pry
         if session[:devise_return_to].present?
             return_to_path = session[:devise_return_to]
             session[:devise_return_to] = nil
