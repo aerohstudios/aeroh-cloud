@@ -24,7 +24,7 @@ Doorkeeper.configure do
     # Example implementation:
 
     if current_user
-      head :forbidden unless ["shivdeepak@gmail.com"].include? current_user.email
+      head :forbidden unless current_user.admin?
     else
       redirect_to sign_in_url
     end
