@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_075337) do
+ActiveRecord::Schema.define(version: 2021_07_19_032751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "devices", force: :cascade do |t|
+    t.string "name"
+    t.string "mac_addr"
+    t.boolean "provisioned", default: false
+    t.string "thing_arn"
+    t.boolean "cert_active", default: false
+    t.string "certificate_arn"
+    t.text "certificate_pem"
+    t.text "certificate_public_key"
+    t.text "certificate_private_key"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_devices_on_user_id"
+  end
 
   create_table "oauth_access_grants", force: :cascade do |t|
     t.bigint "resource_owner_id", null: false
@@ -69,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_075337) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "devices", "users"
   add_foreign_key "oauth_access_grants", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
 end
