@@ -1,3 +1,3 @@
-class Api::V1::DeviceResource < JSONAPI::Resource
+class Api::V1::UserResource < JSONAPI::Resource
     attributes :email
 end
