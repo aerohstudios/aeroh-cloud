@@ -1,3 +1,7 @@
+unless Object.const_defined?("JSONAPI::ResourceController")
+    require 'jsonapi/resource_controller'
+end
+
 class ApplicationController < JSONAPI::ResourceController
     include DeviseConcern
     include Api::ApiHelper
