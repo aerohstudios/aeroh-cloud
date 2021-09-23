@@ -4,7 +4,7 @@ RSpec.describe Device, type: :model do
   it "can't save without name and type" do
     expect(Device.new.save).to be false
 
-    expect { Device.create }.not_to raise_error(ActiveRecord::NotNullViolation)
+    expect { Device.create! }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
   it "can save with user" do

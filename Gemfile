@@ -69,6 +69,7 @@ gem "sentry-rails"
 
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
+gem 'jsonapi-resources', '~> 0.10.5'
 # rswag for sawgger integration
 gem 'rswag-api'
 gem 'rswag-ui'
