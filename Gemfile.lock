@@ -313,7 +313,7 @@ DEPENDENCIES
   doorkeeper
   factory_bot (~> 6.2)
   jbuilder (~> 2.7)
-  jsonapi-resources (~> 0.10.5)
+  jsonapi-resources (= 0.10.5)
   listen (~> 3.3)
   pg (~> 1.2, >= 1.2.3)
   pry (~> 0.14.1)
