@@ -1,6 +1,6 @@
 module Api::ApiHelper
     def authorize_api_endpoint
-        unless user_signed_in?
+        unless (user_signed_in? or doorkeeper_token)
             render json: {
                 errors: [
                     status: 401,
