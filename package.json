@@ -1,18 +1,25 @@
 {
-  "name": "aeroh-cloud",
+  "name": "app",
   "private": true,
   "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "5.4.0",
-    "turbolinks": "^5.2.0",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
-    "yarn": "^1.22.10"
+    "@rails/actioncable": "latest",
+    "@rails/activestorage": "latest",
+    "@rails/webpacker": "^6.0.0-rc.6",
+    "babel-plugin-macros": "^3.1.0",
+    "webpack": "^5.51.1",
+    "webpack-cli": "^4.8.0"
   },
   "version": "0.1.0",
+  "babel": {
+    "presets": [
+      "./node_modules/@rails/webpacker/package/babel/preset.js"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ],
   "devDependencies": {
-    "webpack-dev-server": "^3.11.2"
+    "@webpack-cli/serve": "^1.6.1",
+    "webpack-dev-server": "^4.8.1"
   }
 }
