@@ -14,6 +14,15 @@
 4. [Node JS](https://changelog.com/posts/install-node-js-with-homebrew-on-os-x) v17.9.0 for webpack from Homebrew
 5. [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) 1.22.18 globally via npm
 
+```shell
+> curl -sSL https://get.rvm.io | bash -s stable # this will ask you to install gpg keys
+> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+> rvm install ruby-2.7.4
+> brew install postgresql
+> brew install node
+> npm install --global yarn
+```
+
 
 ## Install libraries
 
@@ -51,6 +60,12 @@ We need to start rails server and webpack server. So, Run the two commands in tw
 ```shell
 > bundle exec rails s
 > ruby ./bin/webpack-dev-server
+```
+
+## Run Test Suite (Rspec)
+
+```shell
+> rspec
 ```
 
 ## Other information to be added later
