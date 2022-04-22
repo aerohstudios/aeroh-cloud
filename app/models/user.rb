@@ -7,6 +7,6 @@ class User < ApplicationRecord
   has_many :devices
 
   def admin?
-    self.email == "shivdeepak@gmail.com"
+    self.email.in?(["shivdeepak@gmail.com", "shiv@aeroh.org"])
   end
 end
