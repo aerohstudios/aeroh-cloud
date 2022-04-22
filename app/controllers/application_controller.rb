@@ -11,7 +11,10 @@ class ApplicationController < JSONAPI::ResourceController
     protected
 
     def context
-        OpenStruct.new({current_user: current_resource_owner || current_user})
+        OpenStruct.new({
+            current_user: current_resource_owner || current_user,
+            controller: self
+        })
     end
 
     private
