@@ -33,14 +33,14 @@ module ThingService
         end
 
         def create_thing
-            thing_name = "#{Rails.env.capitalize}_Druid_Core_#{@identifier}"
+            thing_name = "#{Rails.env.capitalize}_Aeroh_Device_#{@identifier}"
             @thing = @client.create_thing(thing_name: thing_name)
         end
 
         def create_policy
             raise StandardError.new("You need to create a thing first!") unless @thing
 
-            policy_name = "#{Rails.env.capitalize}_Druid_Core_Access_#{@identifier}"
+            policy_name = "#{Rails.env.capitalize}_Aeroh_Device_Access_#{@identifier}"
             policy_document = {
                 "Version": "2012-10-17",
                 "Statement": [

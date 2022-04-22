@@ -1,6 +1,8 @@
 class Device < ApplicationRecord
     belongs_to :user
 
+    after_create :provision
+
     def provision
         return if self.provisioned
 
