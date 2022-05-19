@@ -6,7 +6,7 @@ class Api::V1::DeviceResource < JSONAPI::Resource
     end
 
     def thing_name
-      @model.thing_arn.split("thing/").last
+      @model.thing_arn.split("thing/").last rescue nil
     end
 
     def self.records(options={})
