@@ -85,7 +85,7 @@ YyRIHN8wfdVoOw==
             context.controller.request.path == "/api/v1/devices"
             super - [:certificate_arn]
         else
-            super - [:certificate_arn, :certificate_pem, :certificate_public_key, :certificate_private_key, :thing_name, :root_ca, :mqtt_uri]
+            super - [:certificate_arn, :certificate_pem, :certificate_public_key, :certificate_private_key, :root_ca]
         end
     end
 end
