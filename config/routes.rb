@@ -9,8 +9,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      jsonapi_resources :devices
+      jsonapi_resources :devices, only: [:index, :show, :create, :destroy]
       jsonapi_resources :users, only: [:index, :show, :destroy]
+      resources :authorizer, only: [:index]
     end
   end
 
