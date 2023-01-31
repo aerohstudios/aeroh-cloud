@@ -19,7 +19,7 @@
     "defaults"
   ],
   "devDependencies": {
-    "@webpack-cli/serve": "^1.6.1",
-    "webpack-dev-server": "^4.8.1"
+    "@webpack-cli/serve": "^2.0.1",
+    "webpack-dev-server": "^4.11.1"
   }
 }
