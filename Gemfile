@@ -44,6 +44,9 @@ group :development do
   gem 'spring'
 
   gem 'pry', '~> 0.14.1'
+
+  # enable CORS to make local swagger editor work
+  gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 end
 
 group :test do
