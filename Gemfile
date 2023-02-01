@@ -83,3 +83,4 @@ group :development, :test do
 end
 
 gem 'aws-sdk-iot', '~> 1.72'
+gem 'aws-sdk-iotdataplane', '~> 1.42'
