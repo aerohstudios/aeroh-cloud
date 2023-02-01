@@ -15,4 +15,11 @@ class Device < ApplicationRecord
         self.certificate_public_key = response[:public_key]
         self.save!
     end
+
+    def can user, action
+        # action can be :read, :write, :control
+
+        # TODO: implement more granular access control later
+        return self.user_id == user.id
+    end
 end
