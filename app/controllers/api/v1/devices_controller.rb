@@ -5,7 +5,7 @@ class Api::V1::DevicesController < ApplicationController
 
     before_action -> { doorkeeper_authorize! :read_devices }, only: [:index, :show]
     before_action -> { doorkeeper_authorize! :control_devices }, only: [:publish]
-    before_action -> { doorkeeper_authorize! :write_devices }, only: [:create,  :update, :destroy]
+    before_action -> { doorkeeper_authorize! :write_devices }, only: [:create, :update, :destroy]
 
     def publish
         # extract params
