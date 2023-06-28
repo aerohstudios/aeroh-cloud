@@ -4,6 +4,11 @@
 
 <div class="row">
   <div class="col-md-8">
+    <h4>Endpoints:</h4>
+    <p>Root URL: <code class="bg-light" id="application_id"><%= request.scheme %>://<%= request.host %><% if request.port %>:<%= request.port %><% end %></code></p>
+    <p>Authorize URL: <code class="bg-light" id="application_id"><%= request.scheme %>://<%= request.host %><% if request.port %>:<%= request.port %><% end %>/oauth/authorize</code></p>
+    <p>Token URL: <code class="bg-light" id="application_id"><%= request.scheme %>://<%= request.host %><% if request.port %>:<%= request.port %><% end %>/oauth/token</code></p>
+
     <h4><%= t('.application_id') %>:</h4>
     <p><code class="bg-light" id="application_id"><%= @application.uid %></code></p>
 
