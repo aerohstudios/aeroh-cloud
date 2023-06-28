@@ -5,9 +5,23 @@
 <div class="row">
   <div class="col-md-8">
     <h4>Endpoints:</h4>
-    <p>Root URL: <code class="bg-light" id="application_id"><%= request.scheme %>://<%= request.host %><% if request.port %>:<%= request.port %><% end %></code></p>
-    <p>Authorize URL: <code class="bg-light" id="application_id"><%= request.scheme %>://<%= request.host %><% if request.port %>:<%= request.port %><% end %>/oauth/authorize</code></p>
-    <p>Token URL: <code class="bg-light" id="application_id"><%= request.scheme %>://<%= request.host %><% if request.port %>:<%= request.port %><% end %>/oauth/token</code></p>
+    <%
+      show_port = true;
+      if request.scheme == 'https' and request.port == 443 then
+        show_port = false;
+      end
+      if request.scheme == 'http' and request.port == 80 then
+        show_port = false;
+      end
+
+      root_url = "#{request.scheme}://#{request.host}"
+      if (show_port)
+        root_url += ":#{request.port}"
+      end
+    %>
+    <p>Root URL: <code class="bg-light" id="application_id"><%= root_url %></code></p>
+    <p>Authorize URL: <code class="bg-light" id="application_id"><%= root_url %>/oauth/authorize</code></p>
+    <p>Token URL: <code class="bg-light" id="application_id"><%= root_url %>/oauth/token</code></p>
 
     <h4><%= t('.application_id') %>:</h4>
     <p><code class="bg-light" id="application_id"><%= @application.uid %></code></p>
