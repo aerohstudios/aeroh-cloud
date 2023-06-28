@@ -72,6 +72,22 @@ We need to start rails server and webpack server. So, Run the two commands in tw
 > rspec
 ```
 
+## Deployment
+
+Aeroh Cloud Runs on Heroku
+
+Add the Heroku App Repository in your Git Config
+
+```
+git remote add heroku https://git.heroku.com/aeroh-cloud.git
+```
+
+Push to master, and that will trigger the production deployment pipeline.
+
+```
+git push heroku master
+```
+
 ## Other information to be added later
 
 * Configuration
