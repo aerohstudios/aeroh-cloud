@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  protect_from_forgery except: [:create]
 
   # GET /resource/sign_up
   # def new
@@ -10,9 +11,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    if ['application/vnd.api+json', 'application/json'].include? request.content_type
+      if mobile_access_token_request_valid?
+        @user = User.create(email: @email, password: @password, first_name: @first_name)
+        if @user.persisted?
+          generate_mobile_access_token
+        else
+          render json: { errors: @user.errors.full_messages, data: {} }, status: :unauthorized
+          return false
+        end
+      end
+    else
+      if verify_authenticity_token != false
+        super
+      else
+        raise ActionController::InvalidAuthenticityToken
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
