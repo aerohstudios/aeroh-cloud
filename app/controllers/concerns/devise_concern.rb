@@ -87,15 +87,17 @@ module DeviseConcern
             resource_owner_id: @user.id,
             application_id: @oauth_app.id,
             expires_in: Doorkeeper.configuration.access_token_expires_in,
-            scopes: @scopes
+            scopes: @scopes,
+            use_refresh_token: true
         )
 
         render json: {
             data: {
                 access_token: access_token.token,
+                token_type: 'Bearer',
                 refresh_token: access_token.refresh_token,
                 expires_in: access_token.expires_in,
-                created_at: access_token.created_at,
+                created_at: access_token.created_at.to_i,
             }
         }
     end
