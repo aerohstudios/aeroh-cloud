@@ -3,9 +3,9 @@ class Api::V1::DevicesController < ApplicationController
     before_action :authorize_api_endpoint
     skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy, :publish]
 
-    before_action -> { doorkeeper_authorize! :read_devices, :alexa }, only: [:index, :show]
-    before_action -> { doorkeeper_authorize! :control_devices, :alexa }, only: [:publish]
-    before_action -> { doorkeeper_authorize! :write_devices }, only: [:create, :update, :destroy]
+    before_action -> { doorkeeper_authorize! :read_devices, :alexa, :mobile }, only: [:index, :show]
+    before_action -> { doorkeeper_authorize! :control_devices, :alexa, :mobile }, only: [:publish]
+    before_action -> { doorkeeper_authorize! :write_devices, :mobile }, only: [:create, :update, :destroy]
 
     def publish
         # extract params
