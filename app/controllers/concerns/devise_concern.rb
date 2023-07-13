@@ -30,28 +30,19 @@ module DeviseConcern
         # check verify signature
         @email = params[:email].to_s
         @password = params[:password].to_s
-        password_confirmation = params[:password_confirmation].to_s
         @first_name = params[:first_name].to_s
         @scopes = params[:scopes].to_s
         request_timestamp = params[:timestamp].to_i
 
-        payload = {
-            email: @email,
-            password: @password
-        }
+        payload = "#{@email}|#{@password}"
 
         if params[:controller].ends_with? "registrations"
-            payload[:password_confirmation] = password_confirmation
-            payload[:first_name] = @first_name
+            payload += "|#{@first_name}"
         end
 
-        payload[:scopes] = @scopes
-        payload[:timestamp] = request_timestamp
-
-        payload_json = payload.to_json
-        Rails.logger.debug(payload_json)
+        payload += "|#{@scopes}|#{request_timestamp}"
         expected_signature = params[:signature].to_s
-        actual_signature = generate_hmac(payload_json, @oauth_app.secret)
+        actual_signature = generate_hmac(payload, @oauth_app.secret)
 
         if expected_signature != actual_signature
             render json: { errors: ["Request signature is invalid!"], data: {} }, status: :unauthorized
@@ -70,13 +61,6 @@ module DeviseConcern
         if @scopes != "mobile"
             render json: { errors: ["Request scope is invalid"], data: {} }, status: :unauthorized
             return false
-        end
-
-        if params[:controller].ends_with? "registrations"
-            if @password != password_confirmation
-                render json: { errors: ["Password and password confirmation do not match!"], data: {} }, status: :unauthorized
-                return false
-            end
         end
 
         return true
