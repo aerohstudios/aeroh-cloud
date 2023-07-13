@@ -63,6 +63,7 @@ We need to start rails server and webpack server. So, Run the two commands in tw
 
 ```shell
 > bundle exec rails s
+> npm install --force # needed 1st time for webpack dev server
 > ruby ./bin/webpack-dev-server
 ```
 
