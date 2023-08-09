@@ -1,5 +1,5 @@
 class Api::V1::UserResource < JSONAPI::Resource
-    attributes :email
+    attributes :email, :first_name
 
     def self.records(options={})
         context = options[:context]
