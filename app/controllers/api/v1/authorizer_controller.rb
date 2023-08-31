@@ -1,7 +1,7 @@
 class Api::V1::AuthorizerController < ApplicationController
 
     before_action :authorize_api_endpoint
-    before_action -> { doorkeeper_authorize! :mobile }
+    before_action -> { doorkeeper_authorize! :mobile, :control_devices }
 
     def index
         owner = current_resource_owner || current_user
