@@ -1,5 +1,7 @@
 class Api::V1::DeviceResource < JSONAPI::Resource
-    attributes :name, :mac_addr, :provisioned, :cert_active, :certificate_arn, :certificate_pem, :certificate_public_key, :certificate_private_key, :thing_name, :root_ca, :mqtt_uri
+    attributes :name, :mac_addr, :provisioned, :cert_active, :certificate_arn, :certificate_pem,
+        :certificate_public_key, :certificate_private_key, :thing_name, :root_ca, :mqtt_uri,
+        :latest_firmware_version, :latest_firmware_url
 
     before_save do
         @model.user_id = context.current_user.id if @model.new_record?
@@ -64,6 +66,15 @@ YyRIHN8wfdVoOw==
       port = "8883"
 
       "#{scheme}://#{host}:#{port}"
+    end
+
+    def latest_firmware_version
+        # TODO: get this from a database or something
+        "0.1.2"
+    end
+
+    def latest_firmware_url
+        "https://ota.aeroh.org/link/aeroh-link-fw-v#{latest_firmware_version}.bin"
     end
 
     def self.records(options={})
