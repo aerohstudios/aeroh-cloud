@@ -70,7 +70,7 @@ YyRIHN8wfdVoOw==
 
     def latest_firmware_version
         # TODO: get this from a database or something
-        "0.1.3"
+        "0.1.4"
     end
 
     def latest_firmware_url
